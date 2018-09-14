@@ -28,5 +28,16 @@
 [Principle]->[Finance Department],
 [Principle]->[Accounts Department],
 [Accounts Department]->[Accountant{bg:wheat}]">
+  
+  <h1> Purhcase Flow </h1>  
+<img src="http://yuml.me/diagram/scruffy/class/[vendor selection]->[HOD],
+[Recommendations]->[HOD],
+[purchase proposal]->[HOD],
+[HOD]->sends to[Principle],
+[Principle]sends to->[Governing body],
+[Governing body]sends approval to->[Secretary],
+[Secretary]notifies->[HOD],
+[Secretary]->[Principle],
+[Secretary]->[Accountant]">
 </body>
 </html>
