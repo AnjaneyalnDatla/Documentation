@@ -65,7 +65,7 @@
 
 [User]one-.->many[Purchase|-id:autoincrement;-totalAmount:number;-purchasedt:date;-deliveryDt:date;-isCredit:Boolean;-CreditAmount:number;-vendor:Vendor;receipt:Receipt;lineItems:ListOfLineItems],
 
-[Purchase]one-.->many[LineItem|-productAndService:ProductAndService;-quantity:number;-price:number],
+[Purchase]one-.->many[LineItem|-productAndService:ProductAndService;-quantity:number;-price:number;-totalprice:number],
 
 [Purchase]many-.->one[Vendor|-id:autoincrement;-companyName:String;-phoneNumber:number;-email:string;-address:Address;-firstNameOfContact:String;-lastNameOfContact:String;-phoneNumberOfContact:Number;-websiteLink:String],
 
