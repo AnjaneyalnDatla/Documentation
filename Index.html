@@ -71,25 +71,10 @@
 
 [LineItem]many-.->one[ProductandService|-id:autoincrement;-name:String;-description:String;-category:category;-isSale:boolean;-isPurchase:boolean],
 
-
 [User]one-.->many[Sale|-id:autoincrement;-lineItems:ListOfLineItems;-customer:Customer;totalAmount:Number;receipt:Reciept;isDue:Boolean;DueDate:date],
 
 [Sale]one-.->many[LineItem|-productAndService:ProductAndService;-quantity:number;-price:number],
 
-[Sale]many-.->one[Customer|-id:autoincrement;-isCompany:boolean;-firstName:String;-middleName:String;-lastName;String;-address:Address;phoneNumber:Number;email:String;],
-
-
-[LineItem]
-[Purchase]
-[Transaction]
-[Inventory]
-
-[Vendor|-id:autoincrement;-companyName:String;-phoneNumber:number;-email:string;-address:Address;-firstNameOfContact:String;-lastNameOfContact:String;-phoneNumberOfContact:Number;websiteLink:String]
-
-
-
-[Report]
-
-[Notification]">
+[Sale]many-.->one[Customer|-id:autoincrement;-isCompany:boolean;-firstName:String;-middleName:String;-lastName;String;-address:Address;phoneNumber:Number;email:String;]">
 </body>
 </html>
