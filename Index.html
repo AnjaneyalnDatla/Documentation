@@ -59,35 +59,32 @@
 [HOD]->[All Circulars Sent by HOD Register],
 [Principal]->[Last and First Working Day letters Register]">
   <h1> Class Diagrams </h1>
-<img src="http://yuml.me/diagram/scruffy/class/[Address|-streetAddress:String;-city:String;-state:String;-zipCode:Number;-country:String;-landmark:String]many->one[User|-firstName:String;-middle name:String;-lastName:String;-cellPhone:Number;-homePhone:Number;-officePhone:Number;-emailAddress:String;-address:ListOfAddresses;-designation:String;-role:Role],
+  
+  <h3> Accounts and Finance System </h1> 
+<img src="http://yuml.me/diagram/scruffy/class/[Address|-streetAddress:String;-city:String;-state:String;-zipCode:Number;-country:String;-landmark:String]many->one[User|-firstName:String;-middle name:String;-lastName:String;-cellPhone:Number;-homePhone:Number;-officePhone:Number;-emailAddress:String;-address:ListOfAddresses;-designation:String;-role:Role;-supervisior:userId;],
+
 
 [User]Many->one[Role|-name:String;-description:String],
-
+[User]one-.->many[Sale|-id:autoincrement;-lineItems:ListOfLineItems;-customer:Customer;totalAmount:Number;receipt:Reciept;isDue:Boolean;DueDate:date;status:Status;approver:Approver],
 [User]many->one[Department|-id:autoincrement;name:String;description;String;],
+[User]one-.->many[Purchase|-id:autoincrement;-totalAmount:number;-purchasedt:date;-deliveryDt:date;-isCredit:Boolean;-CreditAmount:number;-vendor:Vendor;receipt:Receipt;lineItems:ListOfLineItems;status:Status;approver:Approver],
 
-[User]one-.->many[Purchase|-id:autoincrement;-totalAmount:number;-purchasedt:date;-deliveryDt:date;-isCredit:Boolean;-CreditAmount:number;-vendor:Vendor;receipt:Receipt;lineItems:ListOfLineItems],
-
-[Purchase]one-.->many[LineItem|-productAndService:ProductAndService;-quantity:number;-price:number;-totalPrice:number;-reasonForPurchase:String;-purchaseCategory:PurchaseCategory],
-
+[Purchase]one-.->many[LineItem|-product:Product;-service:Service;-quantity:number;-price:number;-totalPrice:number;-reasonForPurchase:String;-purchaseCategory:PurchaseCategory],
 [Purchase]many-.->one[Vendor|-id:autoincrement;-companyName:String;-phoneNumber:number;-email:string;-address:Address;-firstNameOfContact:String;-lastNameOfContact:String;-phoneNumberOfContact:Number;-websiteLink:String],
-
 [Purchase]many-.->one[PurchaseCategory|-id:autoincrement;name:description],
+[Purchase]many-.->one[Status|-id:autoincrement;name:String;Description:String],
+[Purchase]-.->[Bill],
 
-[LineItem]many-.->one[ProductandService|-id:autoincrement;-name:String;-description:String;-category:category;-isSale:boolean;-isPurchase:boolean],
 
+[Department]Many-.->One[Budget|-id:autoincrement;-startDt:TimeStamp;-endDt:TimeStamp;totalBudget:Number;remainingBalance:Number],
+[LineItem]many-.->one[Service|-id:autoincrement;-name:String;-description:String;-category:category;-isSale:boolean;-isPurchase:boolean;amount:Number],
+[LineItem]many-.->one[ProductInventory|-id:autoincrement;-productCode:Number;-unitPrice:Number;-numberOfItemsOfthisProduct:Number;-lastUpdated:date;-productCategory:Catergory;-isSaleable:boolean;-isPurchaseable:boolean],
 
-[User]one-.->many[Sale|-id:autoincrement;-lineItems:ListOfLineItems;-customer:Customer;totalAmount:Number;receipt:Reciept;isDue:Boolean;DueDate:date],
-
-[Sale]one-.->many[LineItem|-productAndService:ProductAndService;-quantity:number;-price:number],
-
+[Sale]one-.->many[LineItem],
 [Sale]many-.->one[Customer|-id:autoincrement;-isCompany:boolean;-firstName:String;-middleName:String;-lastName;String;-address:Address;phoneNumber:Number;email:String;],
-
-[Address]many-.->one[Vendor],
-[Address]many-.->one[Customer],
-[Report],
-[Transaction],
-[Inventory],
-[Notification],
-[Approver]">
+[Sale]many-.->one[Status|-id:autoincrement;name:String;Description:String],
+[Sale]-.->[Receipt],
+[Report]-.->[Sale],
+[Report]-.->[Purchase]">
 </body>
 </html>
