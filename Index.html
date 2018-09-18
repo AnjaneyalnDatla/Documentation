@@ -60,6 +60,15 @@
 [Principal]->[Last and First Working Day letters Register]">
   <h1> Class Diagrams </h1>
   
+  <h3> User Access Management (Ready To code)</h3>
+  <img src="http://yuml.me/diagram/scruffy/class/[Address|-id:autoIncrement;-streetAddress:String;-city:String;-state:String;-zipCode:Number;-country:String;-landmark:String;-dateUpdated:TimeStamp;]many->one[User|-Id:autoIncrement;-firstName:String;-middle name:String;-lastName:String;-cellPhone:Number;-homePhone:Number;-officePhone:Number;-emailAddress:String;-address:ListOfAddresses;-designation:String;-role:Role;-supervisior:userId;-dateUpdated:TimeStamp;],
+[User]Many->one[Role|-name:String;-description:String;-dateUpdated:TimeStamp;],
+[User]many->one[Department|-id:autoincrement;-name:String;-description:String;-dateUpdated:TimeStamp;],
+[Department]many->many[Lab|-id:autoincrement;-name:String;-description:String;-dateUpdated:TimeStamp;],
+[DepartmentLab|-departmentId:String;-labId:String],
+[User]one->many[Credentials|-id:autoincrement;userId:String;-username:String;-password:String;-passwordHash:String;-isActive:boolean;-lastReset:TimeStamp;-dateUpdated:TimeStamp;]
+>
+  
   <h3> Accounts and Finance System </h1> 
 <img src="http://yuml.me/diagram/scruffy/class/[Address|-streetAddress:String;-city:String;-state:String;-zipCode:Number;-country:String;-landmark:String]many->one[User|-firstName:String;-middle name:String;-lastName:String;-cellPhone:Number;-homePhone:Number;-officePhone:Number;-emailAddress:String;-address:ListOfAddresses;-designation:String;-role:Role;-supervisior:userId;],
 
