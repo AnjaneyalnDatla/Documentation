@@ -67,7 +67,7 @@
 [Department]many->many[Lab|-id:autoincrement;-name:String;-description:String;-dateUpdated:TimeStamp;],
 [DepartmentLab|-departmentId:String;-labId:String],
 [User]one->many[Credentials|-id:autoincrement;userId:String;-username:String;-password:String;-passwordHash:String;-isActive:boolean;-lastReset:TimeStamp;-dateUpdated:TimeStamp;]
-[Organisation|-id:autoincrement;-name:String;-description:String;completeAddressForDenormalisation;-dateUpdated:TimeStamp;]
+[Organisation|-id:autoincrement;-name:String;-description:String;completeAddressForDenormalisation;-dateUpdated:TimeStamp;],
 [User]many->one[Organisation]">
 
  <h3> Accounts and Finance System </h1> 
